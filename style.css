@@ -96,8 +96,15 @@ p {
 img {
     width: 144px;
     height: 87px;
+    object-fit: cover;
     border-radius: 4px;
     margin: 20px 15px 10px 15px;
+}
+
+.descricao {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
 }
 
 footer {
