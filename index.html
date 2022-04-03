@@ -19,19 +19,19 @@
     <div class="conteudo">
         <h3>Pizzas</h3>
         <div class="lista">
-            <div class="opcao">
+            <div class="opcao" onclick="togglePizzas(this)">
                 <img src="images/mucarela.jpg" />
                 <h4>Muçarela</h4>
                 <p>Queijo muçarela e orégano</p>
                 <p class="preco">R$ 24,90</p>
             </div>
-            <div class="opcao">
+            <div class="opcao" onclick="togglePizzas(this)">
                 <img src="images/margherita.jpg" />
                 <h4>Margherita</h4>
                 <p>Muçarela, tomate, orégano e manjericão</p>
                 <p class="preco">R$ 26,90</p>
             </div>
-            <div class="opcao">
+            <div class="opcao" onclick="togglePizzas(this)">
                 <img src="images/pepperoni.jpg" />
                 <h4>Pepperoni</h4>
                 <p>Muçarela, pepperoni e orégano</p>
@@ -40,19 +40,19 @@
         </div>
         <h3>Bebidas</h3>
         <div class="lista">
-            <div class="opcao">
+            <div class="opcao" onclick="toggleBebidas(this)">
                 <img src="images/coca-cola.jpg" />
                 <h4>Coca-Cola</h4>
                 <p>Garrafa 600 mL</p>
                 <p class="preco">R$ 7,90</p>
             </div>
-            <div class="opcao">
+            <div class="opcao" onclick="toggleBebidas(this)">
                 <img src="images/fanta-guarana.jpg" />
                 <h4>Fanta Guaraná</h4>
                 <p>Garrafa 600 mL</p>
                 <p class="preco">R$ 8,90</p>
             </div>
-            <div class="opcao">
+            <div class="opcao" onclick="toggleBebidas(this)">
                 <img src="images/sprite.jpg" />
                 <h4>Sprite</h4>
                 <p>Garrafa 600 mL</p>
@@ -61,19 +61,19 @@
         </div>
         <h3>Sobremesas</h3>
         <div class="lista">
-            <div class="opcao">
+            <div class="opcao" onclick="toggleSobremesas(this)">
                 <img src="images/churros.jpg" />
                 <h4>Churros</h4>
                 <p>Doce de leite, açucar e canela</p>
                 <p class="preco">R$ 14,90</p>
             </div>
-            <div class="opcao">
+            <div class="opcao" onclick="toggleSobremesas(this)">
                 <img src="images/brigadeiro.jpg" />
                 <h4>Brigadeiro</h4>
                 <p>Brigadeiro e granulado</p>
                 <p class="preco">R$ 16,90</p>
             </div>
-            <div class="opcao">
+            <div class="opcao" onclick="toggleSobremesas(this)">
                 <img src="images/ovomaltine.jpg" />
                 <h4>Ovomaltine</h4>
                 <p>Creme de Ovomaltine</p>
@@ -82,10 +82,44 @@
         </div>  
     </div> 
     <footer>
-        <button>
+        <button class="botao-inativo" onclick="funcaoTeste()">
             <p class="confirmacao">Selecione os 3 itens<br>para fechar o pedido</p>
         </button>
-    </footer> 
+    </footer>
   </body>
+  <script>
+      let contador = 0;
+      
+      function togglePizzas(pizzaEscolhida) {
+          const opcao = document.querySelector(".selecao-pizza");
+          if (opcao !== null) {
+              opcao.classList.remove("selecao-pizza");
+              contador--;
+          }
+          pizzaEscolhida.classList.add("selecao-pizza");
+          escolhaPizza = pizzaEscolhida.innerHTML;
+          contador++;
+      }
+      function toggleBebidas(bebidaEscolhida) {
+          const opcao = document.querySelector(".selecao-bebida");
+          if (opcao !== null) {
+              opcao.classList.remove("selecao-bebida");
+              contador--;
+          }
+          bebidaEscolhida.classList.add("selecao-bebida");
+          escolhaBebida = bebidaEscolhida.innerHTML;
+          contador++
+      }
+      function toggleSobremesas(sobremesaEscolhida) {
+          const opcao = document.querySelector(".selecao-sobremesa");
+          if (opcao !== null) {
+              opcao.classList.remove("selecao-sobremesa");
+              contador--;
+          }
+          sobremesaEscolhida.classList.add("selecao-sobremesa");
+          escolhaSobremesa = sobremesaEscolhida.innerHTML;
+          contador++;
+      }        
+  </script>
 </html>
 
