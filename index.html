@@ -82,7 +82,7 @@
         </div>  
     </div> 
     <footer>
-        <button class="botao-inativo" onclick="funcaoTeste()">
+        <button class="botao-inativo" onclick="ativarBotao()">
             <p class="confirmacao">Selecione os 3 itens<br>para fechar o pedido</p>
         </button>
     </footer>
@@ -99,6 +99,7 @@
           pizzaEscolhida.classList.add("selecao-pizza");
           escolhaPizza = pizzaEscolhida.innerHTML;
           contador++;
+          ativarBotao();
       }
       function toggleBebidas(bebidaEscolhida) {
           const opcao = document.querySelector(".selecao-bebida");
@@ -108,7 +109,8 @@
           }
           bebidaEscolhida.classList.add("selecao-bebida");
           escolhaBebida = bebidaEscolhida.innerHTML;
-          contador++
+          contador++;
+          ativarBotao();
       }
       function toggleSobremesas(sobremesaEscolhida) {
           const opcao = document.querySelector(".selecao-sobremesa");
@@ -119,7 +121,17 @@
           sobremesaEscolhida.classList.add("selecao-sobremesa");
           escolhaSobremesa = sobremesaEscolhida.innerHTML;
           contador++;
-      }        
+          ativarBotao();
+      }
+      function ativarBotao() {
+          if (contador == 3) {
+              const botao = document.querySelector(".botao-inativo");
+              botao.classList.remove("botao-inativo");
+              botao.classList.add("botao-ativo");
+              
+              const aviso = document.querySelector(".confirmacao")
+              aviso.innerHTML = "Fechar pedido";
+          } 
+      }     
   </script>
 </html>
-
