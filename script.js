@@ -7,7 +7,7 @@ function togglePizzas(pizzaEscolhida) {
         contador--;
     }
     pizzaEscolhida.classList.add("selecao-pizza");
-    escolhaPizza = pizzaEscolhida.innerHTML;
+    escolhaPizza = pizzaEscolhida.querySelector("h4").innerHTML;
     contador++;
     ativarBotao();
 }
@@ -19,7 +19,7 @@ function toggleBebidas(bebidaEscolhida) {
         contador--;
     }
     bebidaEscolhida.classList.add("selecao-bebida");
-    escolhaBebida = bebidaEscolhida.innerHTML;
+    escolhaBebida = bebidaEscolhida.querySelector("h4").innerHTML;
     contador++;
     ativarBotao();
 }
@@ -31,7 +31,7 @@ function toggleSobremesas(sobremesaEscolhida) {
         contador--;
     }
     sobremesaEscolhida.classList.add("selecao-sobremesa");
-    escolhaSobremesa = sobremesaEscolhida.innerHTML;
+    escolhaSobremesa = sobremesaEscolhida.querySelector("h4").innerHTML;
     contador++;
     ativarBotao();
 }
@@ -49,6 +49,18 @@ function ativarBotao() {
 }
 
 function envioPedido() {
-    let mensagem = `Olá, gostaria de fazer o pedido.`;
+    let precoPizza = document.querySelector(".selecao-pizza").querySelector(".preco").innerHTML;
+    precoPizza = Number(precoPizza.replace("R$", "").replace(",", "."));
+
+    let precoBebida = document.querySelector(".selecao-bebida").querySelector(".preco").innerHTML;
+    precoBebida = Number(precoBebida   .replace("R$", "").replace(",", "."));
+
+    let precoSobremesa = document.querySelector(".selecao-sobremesa").querySelector(".preco").innerHTML;
+    precoSobremesa = Number(precoSobremesa.replace("R$", "").replace(",", "."));
+
+    let precoTotal = precoPizza + precoBebida + precoSobremesa;
+    let precoFixed = precoTotal.toFixed(2);
+
+    let mensagem = "Olá, gostaria de fazer o pedido.\n- Prato: " + escolhaPizza + "\n- Bebida: " + escolhaBebida + "\n- Sobremesa: " + escolhaSobremesa + "\nTotal: R$" + precoFixed;
     alert(mensagem);
 }
