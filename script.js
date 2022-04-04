@@ -68,6 +68,6 @@ function envioPedido() {
     let precoFixed = precoTotal.toFixed(2);
 
     let mensagem = "Olá, gostaria de fazer o pedido.\n- Prato: " + escolhaPizza + "\n- Bebida: " + escolhaBebida + "\n- Sobremesa: " + escolhaSobremesa + "\nTotal: R$" + precoFixed;
-    let uri = "https://wa.me/5521988886944?text=" + encodeURIComponent(mensagem);
+    let uri = "https://wa.me/5521999999999?text=" + encodeURIComponent(mensagem);
     window.open(uri);
 }
