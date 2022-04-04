@@ -4,9 +4,11 @@ function togglePizzas(pizzaEscolhida) {
     const opcao = document.querySelector(".selecao-pizza");
     if (opcao !== null) {
         opcao.classList.remove("selecao-pizza");
+        opcao.querySelector("ion-icon").classList.add("item-oculto");
         contador--;
     }
     pizzaEscolhida.classList.add("selecao-pizza");
+    pizzaEscolhida.querySelector("ion-icon").classList.remove("item-oculto");
     escolhaPizza = pizzaEscolhida.querySelector("h4").innerHTML;
     contador++;
     ativarBotao();
@@ -16,9 +18,11 @@ function toggleBebidas(bebidaEscolhida) {
     const opcao = document.querySelector(".selecao-bebida");
     if (opcao !== null) {
         opcao.classList.remove("selecao-bebida");
+        opcao.querySelector("ion-icon").classList.add("item-oculto");
         contador--;
     }
     bebidaEscolhida.classList.add("selecao-bebida");
+    bebidaEscolhida.querySelector("ion-icon").classList.remove("item-oculto");
     escolhaBebida = bebidaEscolhida.querySelector("h4").innerHTML;
     contador++;
     ativarBotao();
@@ -28,9 +32,11 @@ function toggleSobremesas(sobremesaEscolhida) {
     const opcao = document.querySelector(".selecao-sobremesa");
     if (opcao !== null) {
         opcao.classList.remove("selecao-sobremesa");
+        opcao.querySelector("ion-icon").classList.add("item-oculto");
         contador--;
     }
     sobremesaEscolhida.classList.add("selecao-sobremesa");
+    sobremesaEscolhida.querySelector("ion-icon").classList.remove("item-oculto");
     escolhaSobremesa = sobremesaEscolhida.querySelector("h4").innerHTML;
     contador++;
     ativarBotao();
@@ -62,5 +68,6 @@ function envioPedido() {
     let precoFixed = precoTotal.toFixed(2);
 
     let mensagem = "Olá, gostaria de fazer o pedido.\n- Prato: " + escolhaPizza + "\n- Bebida: " + escolhaBebida + "\n- Sobremesa: " + escolhaSobremesa + "\nTotal: R$" + precoFixed;
-    alert(mensagem);
+    let uri = "https://wa.me/5521988886944?text=" + encodeURIComponent(mensagem);
+    window.open(uri);
 }

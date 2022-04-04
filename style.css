@@ -11,6 +11,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 
 h1 {
@@ -87,6 +88,7 @@ p {
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
     border-radius: 9px;
     margin-left: 15px;
+    position: relative;
 }
 
 .selecao-pizza {
@@ -114,6 +116,21 @@ img {
     object-fit: cover;
     border-radius: 4px;
     margin: 20px 15px 10px 15px;
+}
+
+ion-icon {
+    color: #32B72F;
+    position: absolute;
+    bottom: 16px;
+    right: 12px;
+}
+
+.item-oculto {
+    display: none;
+}
+
+.selecao-sobremesa ion-icon {
+    display: block;
 }
 
 footer {
